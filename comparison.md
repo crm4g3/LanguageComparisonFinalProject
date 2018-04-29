@@ -36,12 +36,17 @@
 ### Java
 + In Java namespaces are called packages. Here is and example of importing a package. 
 ```java
+package harding.compsci.graphics;
+
 import graphics.Rectangle;
 ```
 + Packages are used to easily and logically determine which function are needed for a proper use. Naming is very import in regards to     packages
 ### C# 
 + Similar to Java namespaces are used to organize classes and to control the scope of classes and methods used in larger programming projects
 ```csharp
+namespace Harding.Compsci.Graphics {
+}
+
 using System;
 ```
 
@@ -171,3 +176,69 @@ public class B : A{}
 ### Java
 
 ### C#
+
+## Memory management
+### Java
++ Java memory is divided into two parts. Young generation and Old generation. Young generation is where all new object are created. When young generation is filled garbage collection is performed. This is called minor GC which divides Young Generation into three parts Eden Memory and Survior Memory spaces. Old Generation memory contains objects that are long lived and have survived after many rounds of Minor GC. Similar to the Young Generation, Old Generation performs Major GC.
++ During GC all application threads are stopped.
++ Java does not use automatic reference counting.
+### C#
++ Memory is held in an address space called the managed heap. All reference types are allocated here. 
++ Memory is released when the GC determins the best time to perform a collection. It determines which object are no longer being used by examinging the applications roots. Each root either refers to an object on the managed heap or is null. Using this list, it examines an application's roots, and in the process creates a graph that contains all the objects that are reachable from the roots. bjects that are not in the graph are unreachable from the application's roots. The garbage collector considers unreachable objects garbage and will release the memory allocated for them.
++ C# does not use automatic reference counting.
+
+## Comparing values
+### Java
+ ```java
+String name = "john";
+if (name == "john")  //Will not work
+
+if (name.equals("john"))   // true
+```
+### C#
+```csharp
+string name = "john"; 
+if (name == "john")    // true
+
+if (name.Equals("john"))   // true
+```
+
+### Null/nil references
++ Both languages use NULL
++ Niether language has special features relating to NULL values
+
+### Errors and exception handling
+### Java
+ ```java
+try {
+  y = 0; 
+  x = 10 / y;
+} catch (Exception ex) {
+  System.out.println(ex.getMessage()); 
+} finally {
+
+}
+```
+### C#
+```csharp
+try {
+  y = 0; 
+  x = 10 / y;
+} catch (Exception ex) {
+  Console.WriteLine(ex.Message); 
+} finally {
+
+}
+```
+
+## Lambda expressions, closures, or functions as types
+### Java
++ 
+### C#
++ C# refers to funtion types at delegates.
++ There's also two generic types of delegate types defined in the base class library, one for methods that return a value, and one for those who doesn't, and they come with variations over how many arguments you have.
+```csharp
+public delegate void DoSomethingDelegate();
+DoSomethingDelegate f = DoSomething;
+f();
+```
