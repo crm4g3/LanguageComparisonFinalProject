@@ -34,7 +34,14 @@
 ## Name spaces
 
 ### Java
-    In java namespaces are called packages. Here is and example of importing a package. import graphics.Rectangle;
-    Packages are used to easily and logically determine which function are needed for a proper use. Naming is very import in regards to packages
+    In java namespaces are called packages. Here is and example of importing a package. 
+```java
+import graphics.Rectangle;
+```
+    
 ### C# 
     
+```javascript
+var s = "JavaScript syntax highlighting";
+alert(s);
+```
