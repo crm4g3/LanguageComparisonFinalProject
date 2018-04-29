@@ -78,7 +78,12 @@ class Student{
  ```java
 Student newStudent = new Student("John");
 ```
-+ Java's garbage collector handles decontructing. There isn't a way to manually deconstruct an object in Java
++ Java's garbage collector handles decontructing, but you can override the finalize function to make your own deconstructor.
+ ```java
+ protected void finalize() throws Throwable { 
+    super.finalize();   // Always call parent's finalizer   
+}
+```
 ### C#
 + Defining a class
 ```csharp
@@ -203,7 +208,7 @@ if (name == "john")    // true
 if (name.Equals("john"))   // true
 ```
 
-### Null/nil references
+## Null/nil references
 + Both languages use NULL
 + Niether language has special features relating to NULL values
 
@@ -233,7 +238,23 @@ try {
 
 ## Lambda expressions, closures, or functions as types
 ### Java
-+ 
++ Java uses Lambda expression to create anonymous methods which are used to implement a method defined by the functional interface.
+```java
+interface MyGreeting {
+	String processName(String str);
+}
+
+public static void main(String args[]) {
+	MyGreeting morningGreeting = (str) -> "Good Morning " + str + "!";
+	MyGreeting eveningGreeting = (str) -> "Good Evening " + str + "!";
+  
+	System.out.println(morningGreeting.processName("Luis"));
+	// Output: Good Morning Luis! 
+    
+	System.out.println(eveningGreeting.processName("Jessica"));	
+    // Output: Good Evening Jessica!
+}
+```
 ### C#
 + C# refers to funtion types at delegates.
 + There's also two generic types of delegate types defined in the base class library, one for methods that return a value, and one for those who doesn't, and they come with variations over how many arguments you have.
@@ -242,3 +263,37 @@ public delegate void DoSomethingDelegate();
 DoSomethingDelegate f = DoSomething;
 f();
 ```
+
+## Implementation of listeners
+### Java
+
+### C#
+
+## Implementation of event handlers
+### Java
+
+### C#
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
