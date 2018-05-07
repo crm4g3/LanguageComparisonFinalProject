@@ -1,6 +1,5 @@
-# This should be in markdown
-## This should be in markdown
-### This should be in markdown
+# Cody McIlvaine
+
 
 # Comparing Java and C#
 
@@ -266,16 +265,68 @@ f();
 
 ## Implementation of listeners
 ### Java
++ Java has many ways of creating listeners.
++ 1. class must implement ActionListener
++ 2. Register an instance of the class 
++ 3. Include code that implements the methods in listener interface.
+```java
+public class Beeper ... implements ActionListener {
+    ...
+    //where initialization occurs:
+        button.addActionListener(this);
+    ...
+    public void actionPerformed(ActionEvent e) {
+        ...//Make a beep sound...
+    }
+}
 
+```
 ### C#
-
++ Listeners are available to the Debug, Trace, and TraceSource classes, each of which can send its output to a variety of listener objects.
++ You can define your own listeners by inheriting from the TraceListener base class and overriding its methods with your customized methods. 
 ## Implementation of event handlers
+### Java
++ Javas event handlers and listeners are the same.
+### C#
++ Declare the event in your class and then invoke it in the appropriate areas.
+```csharp
+namespace ImplementInterfaceEvents  
+{  
+    public interface IDrawingObject  
+    {  
+        event EventHandler ShapeChanged;  
+    }  
+    public class MyEventArgs : EventArgs   
+    {  
+        // class members  
+    }  
+    public class Shape : IDrawingObject  
+    {  
+        public event EventHandler ShapeChanged;  
+        void ChangeShape()  
+        {  
+            // Do something here before the event…  
+
+            OnShapeChanged(new MyEventArgs(/*arguments*/));  
+
+            // or do something here after the event.   
+        }  
+        protected virtual void OnShapeChanged(MyEventArgs e)  
+        {  
+            if(ShapeChanged != null)  
+            {  
+               ShapeChanged(this, e);  
+            }  
+        }  
+    }  
+
+}  
+```
+
+## Singleton
 ### Java
 
 ### C#
-
-
-
 
 
 
